@@ -1,0 +1,13 @@
+function class_label = nnc_euclidean(test_image)
+    dist_holder = zeros(1,150);
+    index_dist=0;
+    for label = 0:9
+       for training = 1:15
+           index_dist = index_dist+1;
+           filename_train = strcat('label',int2str(label),'_training',int2str(training),'.png');
+           train_image = imread(filename_train);
+           dist_holder[index_dist] = euclidean_distance(test_image, train_image);
+       end
+    end
+end
+
